@@ -4,7 +4,7 @@ from Object import Object
 class Engine:
 
     def __init__(self, system):
-        self.__G = 6.67408e-11
+        self.__G = 6.67430e-11
         self.__system = system
 
     def get_objects(self):

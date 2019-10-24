@@ -20,6 +20,9 @@ class Object:
     def commit_location(self):
         self.__loc = self.__temp_loc
 
+    def get_velocity(self):
+        return self.__velocity
+
     def get_location(self):
         return self.__loc
 
