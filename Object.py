@@ -1,7 +1,8 @@
 class Object:
 
-    def __init__(self, obj_id, m, x, y, v_x, v_y):
+    def __init__(self, obj_id, name, m, x, y, v_x, v_y):
         self.__id = obj_id
+        self.__name = name
         self.__mass = m
         self.__loc = (x, y)
         self.__temp_loc = (x, y)
