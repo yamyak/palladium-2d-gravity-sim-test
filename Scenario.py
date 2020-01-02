@@ -7,12 +7,16 @@ from time import sleep
 
 
 if __name__ == "__main__":
-
+    # minimum real world time each frame must be
     sim_time = 0.0
+    # simulation frame time in seconds (amount of time 1 frame is)
     frame_time = 60 * 60
+    # pygame screen size in pixels
     screen_size = 1000
+    # simulation space size loaded into screen size
     space_size = 60e11
 
+    # initialize planets
     system = []
     sun = Object(0, "Sun", 1.9885e30, 0, 0, 0, 0)
     mercury = Object(1, "Mercury", 3.302e23, -2.105262111032039e10, -6.640663808353403e10, 3.665298706393840e4,
@@ -38,6 +42,7 @@ if __name__ == "__main__":
     pluto = Object(11, "Pluto", 1.307e22, -1.477558339934327e12, -4.182460438550376e12, 5.261925689692920e3,
                    -2.648919644838698e3)
 
+    # load all planets into simulation engine
     system.append(sun)
     system.append(mercury)
     system.append(venus)
@@ -51,20 +56,29 @@ if __name__ == "__main__":
     system.append(neptune)
     system.append(pluto)
 
+    # initialize the display and the simulation engine
     display = Display(screen_size, space_size)
     engine = Engine(system)
 
+    # each iteration of loop runs through 1 simulation frame
     frame = 0
     while True:
+        # initialize real world frame timer
         start = perf_counter()
+        # process 1 frame of simulation given amount of simulation time frame should be
         engine.process_system(frame_time)
+        # calculate how long frame took in real world time
         elapsed = perf_counter() - start
 
+        # code to print out frame data
         # print(str(frame) + " : " + str(earth.get_velocity()[0]) + ", " + str(earth.get_velocity()[1]))
         # print(str(frame) + " : " + str(elapsed))
 
+        # if real world frame time is less than minimum value, sleep until minimum time reached
         if elapsed < sim_time:
             sleep(sim_time - elapsed)
 
+        # update the display with new positions
         display.update(engine.get_objects())
+
         frame += 1
