@@ -16,7 +16,8 @@ if __name__ == "__main__":
     # simulation space size loaded into screen size
     space_size = 60e11
 
-    # initialize planets
+    # initialize solar system objects
+    # solar system objects initialized with data from: https://ssd.jpl.nasa.gov/horizons.cgi?
     system = []
     sun = Object(0, "Sun", 1.9885e30, 0, 0, 0, 0)
     mercury = Object(1, "Mercury", 3.302e23, -2.105262111032039e10, -6.640663808353403e10, 3.665298706393840e4,
@@ -42,7 +43,7 @@ if __name__ == "__main__":
     pluto = Object(11, "Pluto", 1.307e22, -1.477558339934327e12, -4.182460438550376e12, 5.261925689692920e3,
                    -2.648919644838698e3)
 
-    # load all planets into simulation engine
+    # load all objects into simulation engine
     system.append(sun)
     system.append(mercury)
     system.append(venus)
