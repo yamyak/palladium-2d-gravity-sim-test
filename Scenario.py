@@ -10,7 +10,7 @@ if __name__ == "__main__":
     # minimum real world time each frame must be
     sim_time = 0.0
     # simulation frame time in seconds (amount of time 1 frame is)
-    frame_time = 60 * 60
+    frame_time = 60 * 60 * 24
     # pygame screen size in pixels
     screen_size = 1000
     # simulation space size loaded into screen size
@@ -43,6 +43,8 @@ if __name__ == "__main__":
     pluto = Object(11, "Pluto", 1.307e22, -1.477558339934327e12, -4.182460438550376e12, 5.261925689692920e3,
                    -2.648919644838698e3)
 
+    rogue = Object(12, "Rogue Star", 1.9885e30, -60e11, -60e11, 10e3, 10e3)
+
     # load all objects into simulation engine
     system.append(sun)
     system.append(mercury)
@@ -56,6 +58,7 @@ if __name__ == "__main__":
     system.append(uranus)
     system.append(neptune)
     system.append(pluto)
+    system.append(rogue)
 
     # initialize the display and the simulation engine
     display = Display(screen_size, space_size)
