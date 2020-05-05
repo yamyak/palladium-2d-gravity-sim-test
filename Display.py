@@ -1,6 +1,12 @@
 from Object import Object
 
 import pygame
+from enum import Enum
+
+
+class Color(Enum):
+    GREEN = 0
+    RED = 1
 
 
 class Display:
@@ -11,6 +17,10 @@ class Display:
         self.__screen_size = screen_size
         self.__space_size = space_size
         self.__screen = pygame.display.set_mode((self.__screen_size, self.__screen_size))
+        self.__color_map = {
+            Color.RED: (255, 0, 0),
+            Color.GREEN: (0, 255, 0)
+        }
 
     # given lists of solar system objects, update their positions on the display
     def update(self, objects):
@@ -28,7 +38,7 @@ class Display:
             screen_y = int((self.__screen_size / 2) - (y * (self.__screen_size / 2) / self.__space_size))
 
             # draw object on display screen
-            pygame.draw.circle(self.__screen, (0, 255, 0), (screen_x, screen_y), 1, 0)
+            pygame.draw.circle(self.__screen, self.__color_map[obj.get_color()], (screen_x, screen_y), 1, 0)
 
         # update the display screen
         pygame.display.update()

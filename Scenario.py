@@ -1,5 +1,6 @@
 from Engine import Engine
 from Display import Display
+from Display import Color
 from Object import Object
 
 from time import perf_counter
@@ -19,31 +20,31 @@ if __name__ == "__main__":
     # initialize solar system objects
     # solar system objects initialized with data from: https://ssd.jpl.nasa.gov/horizons.cgi?
     system = []
-    sun = Object(0, "Sun", 1.9885e30, 0, 0, 0, 0)
+    sun = Object(0, "Sun", 1.9885e30, 0, 0, 0, 0, Color.RED)
     mercury = Object(1, "Mercury", 3.302e23, -2.105262111032039e10, -6.640663808353403e10, 3.665298706393840e4,
-                     -1.228983810111077e4)
+                     -1.228983810111077e4, Color.GREEN)
     venus = Object(2, "Venus", 48.685e23, -1.075055502695123e11, -3.366520720591562e9, 8.891598046362434e2,
-                   -3.515920774124290e4)
+                   -3.515920774124290e4, Color.GREEN)
     earth = Object(3, "Earth", 5.97237e24, -2.521092863852298e10, 1.449279195712076e11, -2.983983333368269e4,
-                   -5.207633918704476e3)
+                   -5.207633918704476e3, Color.GREEN)
     moon = Object(4, "Moon", 7.349e22, -2.552857888050620e10, 1.446860363961675e11, -2.927904627038706e4,
-                  -6.007566180814270e3)
+                  -6.007566180814270e3, Color.GREEN)
     mars = Object(5, "Mars", 6.4171e23, 2.079950549908331e11, -3.143009561106971e9, 1.295003532851602e3,
-                  2.629442067068712e4)
+                  2.629442067068712e4, Color.GREEN)
     ceres = Object(6, "Ceres", 9.3835e20, -3.556734767233869e11, 1.197945446667982e11, -6.242631825543756e3,
-                   -1.831679381403535e4)
+                   -1.831679381403535e4, Color.GREEN)
     jupiter = Object(7, "Jupiter", 1898.13e24, 5.989091595026654e11, 4.391225931434094e11, -7.901937631606453e3,
-                     1.116317697592017e4)
+                     1.116317697592017e4, Color.GREEN)
     saturn = Object(8, "Saturn", 5.6834e26, 9.587063372677683e11, 9.825652108592927e11, -7.428885682764759e3,
-                    6.738814239440629e3)
+                    6.738814239440629e3, Color.GREEN)
     uranus = Object(9, "Uranus", 86.813e24, 2.158774703477132e12, -2.054825231595053e12, 4.637648411798546e3,
-                    4.627192877193521e3)
+                    4.627192877193521e3, Color.GREEN)
     neptune = Object(10, "Neptune", 102.413e24, 2.514853503350991e12, -3.738847517955682e12, 4.465802576076253e3,
-                     3.075682494272277e3)
+                     3.075682494272277e3, Color.GREEN)
     pluto = Object(11, "Pluto", 1.307e22, -1.477558339934327e12, -4.182460438550376e12, 5.261925689692920e3,
-                   -2.648919644838698e3)
+                   -2.648919644838698e3, Color.GREEN)
 
-    rogue = Object(12, "Rogue Star", 1.9885e30, -60e11, -60e11, 10e3, 10e3)
+    rogue = Object(12, "Rogue Star", 1.9885e30, -60e11, -60e11, 10e3, 10e3, Color.RED)
 
     # load all objects into simulation engine
     system.append(sun)
